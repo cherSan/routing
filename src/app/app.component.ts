@@ -20,9 +20,9 @@ export class AppComponent {
         let enteringSlideIndex = _.get(this.route, 'snapshot.firstChild.data.slideIndex');
         console.log(leavingSlideIndex, enteringSlideIndex)
         if(leavingSlideIndex && enteringSlideIndex){
-          this.routeSlideDirectionService.setDirection(leavingSlideIndex > enteringSlideIndex ? 'forward' : 'backward')
+          this.routeSlideDirectionService.setVerticalDirection(leavingSlideIndex > enteringSlideIndex ? 'forward' : 'backward')
         } else {
-          this.routeSlideDirectionService.setDirection(null);
+          this.routeSlideDirectionService.setVerticalDirection(null);
         }
       }
     });

@@ -11,7 +11,7 @@ export class VerticalSlidablePageComponent implements AfterViewChecked, WaitForC
   }
   @HostBinding('@slideVertical')
   get slideVertical() {
-    let slideDirection = this.routeSlideDirectionService.getDirection();
+    let slideDirection = this.routeSlideDirectionService.getVerticalDirection();
     if( slideDirection ) {
       return slideDirection;
     }
