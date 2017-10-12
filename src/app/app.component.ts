@@ -18,7 +18,6 @@ export class AppComponent {
       if (event instanceof RoutesRecognized) {
         let leavingSlideIndex = _.get(event, 'state.root.firstChild.data.slideIndex');
         let enteringSlideIndex = _.get(this.route, 'snapshot.firstChild.data.slideIndex');
-        console.log(leavingSlideIndex, enteringSlideIndex)
         if(leavingSlideIndex && enteringSlideIndex){
           this.routeSlideDirectionService.setVerticalDirection(leavingSlideIndex > enteringSlideIndex ? 'forward' : 'backward')
         } else {
