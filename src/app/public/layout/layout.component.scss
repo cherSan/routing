@@ -1,0 +1,13 @@
+:host {
+  background: green;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  .layout-content {
+    position: fixed;
+    top: 200px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
