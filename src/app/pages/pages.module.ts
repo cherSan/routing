@@ -6,6 +6,6 @@ import {CanDeactivateAfterChangeDetectionGuard} from "./can-deactivate-after-cha
   providers: [
     RouteSlideDirectionService,
     CanDeactivateAfterChangeDetectionGuard,
-  ]
+  ],
 })
 export class PagesModule { }

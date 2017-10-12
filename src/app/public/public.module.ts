@@ -7,6 +7,7 @@ const publicRoutes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    canDeactivate: [CanDeactivateAfterChangeDetectionGuard],
     children: [
       {
         path: '',
@@ -17,21 +18,21 @@ const publicRoutes: Routes = [
         path: 'home',
         loadChildren: './home/home.module#HomeModule',
         data: {
-          slideIndex: 1
+          slideIndex: 31
         },
       },
       {
         path: 'info',
         loadChildren: './information/information.module#InformationModule',
         data: {
-          slideIndex: 2
+          slideIndex: 32
         },
       },
       {
         path: 'servers',
         loadChildren: './servers/servers.module#ServersModule',
         data: {
-          slideIndex: 3
+          slideIndex: 33
         },
       }
     ],

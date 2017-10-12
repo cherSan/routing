@@ -1,15 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {slideHorizontal} from "../../pages/router-animations";
+import {SlidablePageComponent} from "../../pages/slidable-page/slidable-page.component";
 
 @Component({
   selector: 'app-sign-in',
   templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  styleUrls: ['./sign-in.component.scss'],
+  animations: [slideHorizontal],
 })
-export class SignInComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
-}
+export class SignInComponent extends SlidablePageComponent {}

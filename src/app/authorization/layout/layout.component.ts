@@ -12,19 +12,18 @@ import {VerticalSlidablePageComponent} from "../../pages/vertical-slidable-page/
   animations: [slideVertical]
 })
 export class LayoutComponent extends VerticalSlidablePageComponent {
-
-  constructor(
-    private router: Router,
-    private route: ActivatedRoute,
-    protected routeSlideDirectionService: RouteSlideDirectionService,
-    cdRef: ChangeDetectorRef,
-  ) {
+  constructor(private router: Router,
+              private route: ActivatedRoute,
+              protected routeSlideDirectionService: RouteSlideDirectionService,
+              cdRef: ChangeDetectorRef,) {
     super(cdRef, routeSlideDirectionService);
     this.router.events.subscribe((event) => {
       if (event instanceof RoutesRecognized) {
         let leavingSlideIndex = _.get(event, 'state.root.firstChild.firstChild.firstChild.data.slideIndex');
-        let enteringSlideIndex = _.get(this.route, 'snapshot.firstChild.firstChild.data.slideIndex');
-        if(leavingSlideIndex && enteringSlideIndex){
+        let enteringSlideIndex = _.get(this.route, 'snapshot.firstChild.data.slideIndex');
+        console.log(leavingSlideIndex, enteringSlideIndex)
+
+        if (leavingSlideIndex && enteringSlideIndex) {
           this.routeSlideDirectionService.setDirection(leavingSlideIndex > enteringSlideIndex ? 'forward' : 'backward')
         } else {
           this.routeSlideDirectionService.setDirection(null);

@@ -4,14 +4,13 @@ import {WaitForChangeDetection} from "../wait-for-change-detection";
 import {Subject} from "rxjs/Subject";
 
 @Component({})
-export class SlidablePageComponent implements AfterViewChecked, WaitForChangeDetection {
+export class VerticalSlidablePageComponent implements AfterViewChecked, WaitForChangeDetection {
   viewChecked$: Subject<void>;
-
   constructor(protected cdRef: ChangeDetectorRef, protected routeSlideDirectionService: RouteSlideDirectionService){
     this.viewChecked$ = new Subject<void>();
   }
-  @HostBinding('@slideHorizontal')
-  get slideHorizontal() {
+  @HostBinding('@slideVertical')
+  get slideVertical() {
     let slideDirection = this.routeSlideDirectionService.getDirection();
     if( slideDirection ) {
       return slideDirection;
