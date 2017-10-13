@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import {slideHorizontal} from "../../pages/router-animations";
-import {SlidablePageComponent} from "../../pages/slidable-page/slidable-page.component";
+import {VerticalSlidable} from "../../pages/vertical-slidable-page/vertical-slidable";
+import {slideVertical} from "../../pages/router-animations";
 
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',
   styleUrls: ['./sign-up.component.scss'],
-  animations: [slideHorizontal],
+  animations: [slideVertical],
 })
-export class SignUpComponent extends SlidablePageComponent {}
+export class SignUpComponent extends VerticalSlidable {}

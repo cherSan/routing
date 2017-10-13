@@ -19,9 +19,9 @@ export class AppComponent {
         let leavingSlideIndex = _.get(event, 'state.root.firstChild.data.slideIndex');
         let enteringSlideIndex = _.get(this.route, 'snapshot.firstChild.data.slideIndex');
         if(leavingSlideIndex && enteringSlideIndex){
-          this.routeSlideDirectionService.setVerticalDirection(leavingSlideIndex > enteringSlideIndex ? 'forward' : 'backward')
+          this.routeSlideDirectionService.setDirection(leavingSlideIndex > enteringSlideIndex ? 'forward' : 'backward')
         } else {
-          this.routeSlideDirectionService.setVerticalDirection(null);
+          this.routeSlideDirectionService.setDirection(null);
         }
       }
     });

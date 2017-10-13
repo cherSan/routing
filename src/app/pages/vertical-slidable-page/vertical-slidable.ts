@@ -3,8 +3,10 @@ import {RouteSlideDirectionService} from "../route-slide-direction.service";
 import {WaitForChangeDetection} from "../wait-for-change-detection";
 import {Subject} from "rxjs/Subject";
 
-@Component({})
-export class VerticalSlidablePageComponent implements AfterViewChecked, WaitForChangeDetection {
+@Component({
+  template: '<div>Some problems</div>'
+})
+export class VerticalSlidable implements AfterViewChecked, WaitForChangeDetection {
   viewChecked$: Subject<void>;
   constructor(protected cdRef: ChangeDetectorRef, protected routeSlideDirectionService: RouteSlideDirectionService){
     this.viewChecked$ = new Subject<void>();

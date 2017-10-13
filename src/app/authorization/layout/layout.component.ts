@@ -1,17 +1,17 @@
 import {ChangeDetectorRef, Component} from '@angular/core';
 import {ActivatedRoute, Router, RoutesRecognized} from "@angular/router";
-import {RouteSlideDirectionService} from "../../pages/route-slide-direction.service";
 import _ from 'lodash';
-import {slideVertical} from "../../pages/router-animations";
-import {VerticalSlidablePageComponent} from "../../pages/vertical-slidable-page/vertical-slidable-page.component";
+import {RouteSlideDirectionService} from "../../pages/route-slide-direction.service";
+import {HorizontalSlidable} from "../../pages/slidable-page/horizontal-slidable";
+import {slideHorizontal} from "../../pages/router-animations";
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
-  animations: [slideVertical]
+  animations: [slideHorizontal],
 })
-export class LayoutComponent extends VerticalSlidablePageComponent {
+export class LayoutComponent extends HorizontalSlidable {
   constructor(private router: Router,
               private route: ActivatedRoute,
               protected routeSlideDirectionService: RouteSlideDirectionService,
@@ -24,9 +24,9 @@ export class LayoutComponent extends VerticalSlidablePageComponent {
         console.log(leavingSlideIndex, enteringSlideIndex)
 
         if (leavingSlideIndex && enteringSlideIndex) {
-          this.routeSlideDirectionService.setDirection(leavingSlideIndex > enteringSlideIndex ? 'forward' : 'backward')
+          this.routeSlideDirectionService.setVerticalDirection(leavingSlideIndex > enteringSlideIndex ? 'forward' : 'backward')
         } else {
-          this.routeSlideDirectionService.setDirection(null);
+          this.routeSlideDirectionService.setVerticalDirection(null);
         }
       }
     });
